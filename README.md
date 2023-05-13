@@ -132,9 +132,9 @@ Same think as WEBP convertation, but we can use same settings for jpeg and png
 
 ```shell
 # Converting ALL images into AVIF
-find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png"\) \
+find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) \
 -exec bash -c '
-avif_path="$0.avif";
+avif_path=$0.avif;
 if [ ! -f "$avif_path" ]; then
   convert -quiet "$0" -quality 90% "$avif_path";
 fi;' {} \;

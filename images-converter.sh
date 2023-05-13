@@ -32,12 +32,12 @@
 # Converting JPEG images into WEBP
 find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" \) \
 -exec bash -c '
-webp_path="$0.webp";
+webp_path=$0.webp;
 if [ ! -f "$webp_path" ]; then
   cwebp -quiet -q 90 "$0" -o "$webp_path";
 fi;' {} \;
 
-# converting PNG images into WEBP
+# Converting PNG images into WEBP
 find $1 -type f -and -iname "*.png" \
 -exec bash -c '
 webp_path=$0.webp;
@@ -46,9 +46,9 @@ if [ ! -f "$webp_path" ]; then
 fi;' {} \;
 
 # Converting ALL images into AVIF
-find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png"\) \
+find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) \
 -exec bash -c '
-avif_path="$0.avif";
+avif_path=$0.avif;
 if [ ! -f "$avif_path" ]; then
   convert -quiet "$0" -quality 90% "$avif_path";
 fi;' {} \;
