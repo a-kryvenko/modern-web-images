@@ -118,7 +118,7 @@ if [ ! -f "$webp_path" ]; then
   cwebp -quiet -q 90 "$0" -o "$webp_path";
 fi;' {} \;
 
-# converting PNG images into WEBP
+# Converting PNG images into WEBP
 find $1 -type f -and -iname "*.png" \
 -exec bash -c '
 webp_path=$0.webp;
@@ -130,7 +130,7 @@ fi;' {} \;
 ### Convert images to AVIF
 Same think as WEBP convertation, but we can use same settings for jpeg and png
 
-```
+```shell
 # Converting ALL images into AVIF
 find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png"\) \
 -exec bash -c '
