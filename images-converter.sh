@@ -20,9 +20,8 @@
 
 # Add block to NGINX server config
 # location ~* ^(/upload/.+)\.(png|jpe?g)$ {
-#     set $base $1.$2;
 #     add_header Vary Accept;
-#     try_files $base$avif_suffix $base$webp_suffix $uri =404;
+#     try_files $uri$avif_suffix $uri$webp_suffix $uri =404;
 # }
 
 # Add schedule to crontab

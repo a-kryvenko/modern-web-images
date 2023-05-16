@@ -54,9 +54,8 @@ Next, add next code in you "server" block to override response.
 
 ```
 location ~* ^(/upload/.+)\.(png|jpe?g)$ {
-    set $base $1.$2;
     add_header Vary Accept;
-    try_files $base$avif_suffix $base$webp_suffix $uri =404;
+    try_files $uri$avif_suffix $uri$webp_suffix $uri =404;
 }
 ```
 
