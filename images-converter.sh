@@ -44,11 +44,3 @@ if [ ! -f "$webp_path" ]; then
   cwebp -quiet -lossless "$0" -o "$webp_path";
 fi;' {} \;
 
-# Converting ALL images into AVIF
-find $1 -type f -and \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) \
--exec bash -c '
-avif_path=$0.avif;
-if [ ! -f "$avif_path" ]; then
-  convert -quiet "$0" -quality 90% "$avif_path";
-fi;' {} \;
-
